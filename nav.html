@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            display: flex;
+            height: 100vh;
+            background: #f4f4f4;
+        }
+
+        .sidebar {
+            width: 20%;
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: url('9e220f43-e6f4-4d91-9f1a-05ed7b429957.jpeg') no-repeat center;
+            background-size: cover;
+            border: 3px solid white;
+            margin-bottom: 15px;
+        }
+
+        .sidebar h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .sidebar a {
+            display: block;
+            text-decoration: none;
+            color: white;
+            padding: 10px;
+            width: 100%;
+            text-align: center;
+            border-radius: 5px;
+            margin: 5px 0;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .sidebar a:hover {
+            background: #1abc9c;
+            transform: scale(1.05);
+        }
+
+        /* Content Area */
+        .content {
+            width: 80%;
+            padding: 40px;
+            background: white;
+            overflow-y: auto;
+        }
+
+        .section {
+            display: none;
+        }
+
+        .active {
+            display: block;
+        }
+
+        .section h2 {
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .image-placeholder {
+            width: 50%;
+            height: 300px;
+            background-size: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .edu {
+            width: 30%;
+            height: 275px;
+            background-size: cover;
+            border-radius: 10px;
+            margin-top: -50px;
+            margin-bottom: 15px;
+        }
+
+        .workexp {
+            width: 30%;
+            height: 300px;
+            background-size: cover;
+            border-radius: 10px;
+            margin-top: -10px;
+            margin-bottom: 15px;
+        }
+
+        .skill {
+            width: 30%;
+            height: 300px;
+            background-size: cover;
+            border-radius: 10px;
+            margin-top: -10px;
+            margin-bottom: 15px;
+        }
+
+        .pro {
+            width: 50%;
+            height: 300px;
+            background-size: cover;
+            border-radius: 10px;
+            margin-top: -10px;
+            margin-bottom: 15px;
+        }
+
+        .container {
+            display: flex;
+            gap: 15px;
+        }
+
+        .contacts {
+            width: 30%;
+            height: 250px;
+            background-size: cover;
+            border-radius: 10px;
+            margin-top: -10px;
+            margin-bottom: 15px;
+        }
+
+        .details {
+            background: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        ul {
+            list-style-type: square;
+            padding-left: 20px;
+        }
+
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: gray;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <div class="profile-pic"></div>
+        <h2>Shivani Dalal</h2>
+        <a href="#" onclick="showSection('home')">Home</a>
+        <a href="#" onclick="showSection('education')">Education</a>
+        <a href="#" onclick="showSection('experience')">Experience</a>
+        <a href="#" onclick="showSection('skills')">Skills</a>
+        <a href="#" onclick="showSection('projects')">Projects</a>
+        <a href="#" onclick="showSection('contact')">Contact</a>
+    </div>
+
+    <div class="content">
+        <div id="home" class="section active">
+            <h2>Welcome to My Resume</h2>
+            <div class="image-placeholder"
+                style="background-image: url('construction-concept-with-engineering-tools.jpg');"></div>
+            <p>Hello! I'm <strong>Shivani Dalal</strong>, a passionate ICT student specializing in cybersecurity,
+                software engineering, and web development.</p>
+        </div>
+
+        <!-- Education -->
+        <div id="education" class="section">
+            <h2>Education</h2>
+            <div class="edu" style="background-image: url('4190.jpg');"></div>
+            <div class="details">
+                <p><strong>Bachelor of Technology (BTech) in ICT</strong></p>
+                <p>XYZ University | 2021 - 2025</p>
+                <ul>
+                    <li>Cybersecurity & Web Development Specialization</li>
+                    <li>GPA: 3.8/4.0</li>
+                </ul>
+            </div>
+            <br>
+            <div class="details">
+                <p><strong>Diploma in Ethical Hacking & Cybersecurity</strong></p>
+                <p>ABC Cyber Institute | 2023</p>
+                <ul>
+                    <li>Penetration Testing, Cryptography</li>
+                    <li>Red & Blue Team Exercises</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Experience -->
+        <div id="experience" class="section">
+            <h2>Work Experience</h2>
+            <div class="workexp" style="background-image: url('romeo-a-3WyOsYlocX0-unsplash.jpg');"></div>
+            <div class="details">
+                <p><strong>Cybersecurity Intern</strong> - XYZ Company</p>
+                <p>June 2024 - Present</p>
+                <ul>
+                    <li>Conducted penetration testing</li>
+                    <li>Developed security patches</li>
+                </ul>
+            </div>
+            <br>
+            <div class="details">
+                <p><strong>Web Developer Intern</strong> - ABC Tech</p>
+                <p>Jan 2024 - May 2024</p>
+                <ul>
+                    <li>Built and optimized company websites</li>
+                    <li>Developed front-end UI using React.js</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Skills -->
+        <div id="skills" class="section">
+            <h2>Technical Skills</h2>
+            <div class="skill" style="background-image: url('mana5280-axqTLZ12Jss-unsplash.jpg');"></div>
+            <ul style="list-style-type: square;background: #ecf0f1; padding: 15px;
+            padding-left: 30px; border-radius: 8px;">
+                <li>Cybersecurity & Ethical Hacking</li>
+                <li>Web Development (HTML, CSS, JavaScript, React)</li>
+                <li>Programming (Python, C, JavaScript)</li>
+                <li>Cloud Security & Linux Administration</li>
+            </ul>
+        </div>
+
+        <!-- Projects -->
+        <div id="projects" class="section">
+            <h2>Projects</h2>
+            <div class="pro" style="background-image: url('jo-szczepanska-9OKGEVJiTKk-unsplash.jpg');"></div>
+            <div class="details">
+                <p><strong>1. Secure Chat Application</strong></p>
+                <p>Built an end-to-end encrypted messaging app using AES encryption.</p>
+            </div>
+            <br>
+            <div class="details">
+                <p><strong>2. Web-Based Security Scanner</strong></p>
+                <p>Developed a vulnerability scanner for websites using Python.</p>
+            </div>
+            <br>
+            <div class="details">
+                <p><strong>3. Automated Phishing Detection System</strong></p>
+                <p>Created an AI-powered tool to detect phishing emails using machine learning.</p>
+            </div>
+        </div>
+
+        <!-- Contact -->
+        <div id="contact" class="section">
+            <h2>Contact Information</h2>
+            <div class="container">
+                <div class="contacts" style="background-image: url('jeremiah-del-mar-6wEM5ZJWVDQ-unsplash.jpg');"></div>
+                <div class="contacts" style="background-image: url('liudmyla-denysiuk-iJ9o00UeAWk-unsplash.jpg');">
+                </div>
+            </div>
+            <ul style="list-style-type: square;background: #ecf0f1; padding: 15px;
+            padding-left: 30px; border-radius: 8px;">
+                <li>
+                    <p><strong>Email:</strong> your.email@example.com</p>
+                </li>
+                <li>
+                    <p><strong>Phone:</strong> +1234567890</p>
+                </li>
+                <li>
+                    <p><strong>LinkedIn:</strong> linkedin.com/in/yourname</p>
+                </li>
+                <li>
+                    <p><strong>GitHub:</strong> github.com/yourusername</p>
+                </li>
+            </ul>
+        </div>
+        <div class="footer">
+            <p>&copy; 2025 Shivani Dalal | Designed with ❤️</p>
+        </div>
+    </div>
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+        }
+    </script>
+</body>
+
+</html>

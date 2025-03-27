@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Feedback Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(to right, #3d8d7a, #b3d8a8);
+            /* Gradient background */
+            color: #3d8a8f;
+            /* Darker text for contrast */
+        }
+
+        .header {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .container h2 {
+            color: #fbffe4;
+            /* Light Pastel Yellow */
+        }
+
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            /* White with slight transparency */
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin-top: 20px;
+        }
+
+        .star-rating {
+            direction: ltr;
+            display: inline-block;
+        }
+
+        .star-rating input {
+            display: none;
+        }
+
+        .star-rating label {
+            font-size: 30px;
+            color: #ddd;
+            cursor: pointer;
+        }
+
+        .star-rating label:hover,
+        .star-rating input:checked~label {
+            color: #AA60C8;
+        }
+
+        .face-rating {
+            display: flex;
+            justify-content: space-between;
+            width: 250px;
+            margin: 10px 0;
+        }
+
+        .face-rating input {
+            display: none;
+        }
+
+        .face-rating label {
+            font-size: 40px;
+            cursor: pointer;
+            color: #ddd;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .face-rating label:hover {
+            color: var(--face-color);
+        }
+
+        .face-rating input:checked+label {
+            color: var(--face-color);
+        }
+
+        .delivery-rating {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .delivery-rating input {
+            display: none;
+        }
+
+        .delivery-rating label {
+            padding: 15px 20px;
+            border: 1px solid #ccc;
+            text-align: center;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s;
+            font-size: 18px;
+            border-radius: 5px;
+            background-color: #b3d8a8;
+            /* Light Pastel Green */
+            color: #3d8a8f;
+            /* Darker text */
+        }
+
+        .delivery-rating input:checked+label {
+            background: #fbffe4;
+            /* Light Pastel Yellow */
+            color: #3d8a8f;
+            /* Darker text */
+        }
+
+        .delivery-rating label:hover {
+            background: #e4fbff;
+            /* Light Pastel Blue */
+        }
+
+        .thumb-scale {
+            display: flex;
+            gap: 10px;
+        }
+
+        .thumb-scale button {
+            padding: 10px 20px;
+            border: 1px solid #79D7BE;
+            background-color: #b3d8a8;
+            /* Light Pastel Green */
+            color: #3d8a8f;
+            /* Darker text */
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: 0.3s;
+        }
+
+        .thumb-scale button:hover {
+            background-color: #fbffe4;
+            /* Light Pastel Yellow */
+            color: white;
+        }
+
+        .thumb-scale button.active {
+            background-color: #3d8d7a;
+            /* Darker Pastel Green */
+            color: white;
+            border-color: #3d8d7a;
+        }
+
+        .btn-secondary {
+            background-color: #b3d8a8;
+            /* Light Pastel Green */
+            color: #3d8a8f;
+            /* Darker text */
+            border: 1px solid #79D7BE;
+        }
+
+        .btn-secondary:hover {
+            background-color: #FFB200;
+            /* Light Pastel Yellow */
+            color: white;
+        }
+
+        .btn-primary {
+            background-color: #3d8d7a;
+            /* Darker Pastel Green */
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #FF8A8A;
+            /* Light Pastel Green */
+        }
+
+        /* File Upload Section */
+        .file-upload {
+            border: 2px dashed #ccc;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: border 0.3s;
+            background-color: #b3d8a8;
+            /* Light Pastel Green */
+        }
+
+        .file-upload:hover {
+            border-color: #125B9A;
+            /* Light Pastel Yellow */
+        }
+
+        .file-upload input {
+            display: none;
+        }
+
+        .additional-feedback textarea {
+            width: 100%;
+            min-height: 100px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            background-color: #fff;
+            /* White for contrast */
+        }
+
+        textarea {
+            resize: none !important;
+            overflow: hidden !important;
+        }
+
+        .review-preview {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            display: none;
+            /* Initially hidden */
+            background-color: rgba(255, 255, 255, 0.9);
+            /* White with slight transparency */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h2>Product Feedback</h2>
+        <div class="form-container">
+            <form id="feedbackForm">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="firstName"><b style="font-size: 20px;">First Name</b></label>
+                            <input type="text" class="form-control" id="firstName" placeholder="Enter your first name"
+                                required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="lastName"><b style="font-size: 20px;">Last Name</b></label>
+                            <input type="text" class="form-control" id="lastName" placeholder="Enter your last name"
+                                required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="email"><b style="font-size: 20px;">Email Address</b></label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="phone"><b style="font-size: 20px;">Phone Number</b></label>
+                            <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="productName"><b style="font-size: 20px;">Product Name</b></label>
+                            <input type="text" class="form-control" id="productName" placeholder="Enter product name"
+                                required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="productType"><b style="font-size: 20px;">Product Type</b></label>
+                            <select class="form-control" id="productType" required>
+                                <option value="" disabled selected>Select product type</option>
+                                <option value="Electronics">Electronics</option>
+                                <option value="Clothing">Clothing</option>
+                                <option value="Home & Kitchen">Home & Kitchen</option>
+                                <option value="Beauty">Beauty</option>
+                                <option value="Sports">Sports</option>
+                                <option value="Books">Books</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <br><br>
+                <!-- Star Rating -->
+                <div class="form-group">
+                    <label><b style="font-size: 25px;">Star Rating:</b></label>
+                    <br>
+                    <div class="star-rating">
+                        <input type="radio" id="star1" name="starRating" value="1" />
+                        <label for="star1" class="star"><i class="fas fa-star"></i></label>
+                        <input type="radio" id="star2" name="starRating" value="2" />
+                        <label for="star2" class="star"><i class="fas fa-star"></i></label>
+                        <input type="radio" id="star3" name="starRating" value="3" />
+                        <label for="star3" class="star"><i class="fas fa-star"></i></label>
+                        <input type="radio" id="star4" name="starRating" value="4" />
+                        <label for="star4" class="star"><i class="fas fa-star"></i></label>
+                        <input type="radio" id="star5" name="starRating" value="5" />
+                        <label for="star5" class="star"><i class="fas fa-star"></i></label>
+                    </div>
+                </div>
+                <br><br>
+                <!-- Face Rating -->
+                <div class="form-group">
+                    <label><b style="font-size: 25px;">Face Rating:</b></label>
+                    <div class="face-rating">
+                        <input type="radio" id="face1" name="faceRating" value="5" />
+                        <label for="face1" class="face face1"><i class="fas fa-grin-beam"></i></label>
+                        <input type="radio" id="face2" name="faceRating" value="4" />
+                        <label for="face2" class="face face2"><i class="fas fa-smile"></i></label>
+                        <input type="radio" id="face3" name="faceRating" value="3" />
+                        <label for="face3" class="face face3"><i class="fas fa-meh"></i></label>
+                        <input type="radio" id="face4" name="faceRating" value="2" />
+                        <label for="face4" class="face face4"><i class="fas fa-frown"></i></label>
+                        <input type="radio" id="face5" name="faceRating" value="1" />
+                        <label for="face5" class="face face5"><i class="fas fa-angry"></i></label>
+                    </div>
+                </div>
+                <br><br>
+                <!-- Delivery Service Rating -->
+                <div class="rating-section">
+                    <h4><strong>Delivery Service Rating</strong></h4>
+                    <div class="delivery-rating">
+                        <input type="radio" id="rate1" name="deliveryRating" value="1">
+                        <label for="rate1">1</label>
+
+                        <input type="radio" id="rate2" name="deliveryRating" value="2">
+                        <label for="rate2">2</label>
+
+                        <input type="radio" id="rate3" name="deliveryRating" value="3">
+                        <label for="rate3">3</label>
+
+                        <input type="radio" id="rate4" name="deliveryRating" value="4">
+                        <label for="rate4">4</label>
+
+                        <input type="radio" id="rate5" name="deliveryRating" value="5">
+                        <label for="rate5">5</label>
+
+                        <input type="radio" id="rate6" name="deliveryRating" value="6">
+                        <label for="rate6">6</label>
+
+                        <input type="radio" id="rate7" name="deliveryRating" value="7">
+                        <label for="rate7">7</label>
+
+                        <input type="radio" id="rate8" name="deliveryRating" value="8">
+                        <label for="rate8">8</label>
+
+                        <input type="radio" id="rate9" name="deliveryRating" value="9">
+                        <label for="rate9">9</label>
+
+                        <input type="radio" id="rate10" name="deliveryRating" value="10">
+                        <label for="rate10">10</label>
+                    </div>
+                    <div class="row">
+                        <div class="col text-left"><span>Poor</span></div>
+                        <div class="col text-right"><span>Excellent</span></div>
+                    </div>
+                </div>
+                <br><br>
+                <!-- Thumb Scale -->
+                <div class="form-group">
+                    <label><b style="font-size: 25px;">Thumb Scale</b></label>
+                    <div class="thumb-scale">
+                        <button type="button" id="likeButton"><i class="fas fa-thumbs-up"></i> Like</button>
+                        <button type="button" id="dislikeButton"><i class="fas fa-thumbs-down"></i> Dislike</button>
+                    </div>
+                </div>
+                <br><br>
+                <!-- File Upload -->
+                <h4><strong>File</strong></h4>
+                <p class="text-muted">Attach product image</p>
+                <div class="file-upload">
+                    <input type="file" class="form-control-file" id="productImage" accept="image/*">
+                    <label for="productImage">Choose file or drop here</label>
+                </div>
+                <br><br>
+                <div class="form-group">
+                    <label for="additionalFeedback"><b style="font-size: 25px;">Additional Feedback:</b></label>
+                    <textarea class="form-control" id="additionalFeedback" rows="4" maxlength="400"
+                        placeholder="Enter your feedback here..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <button type="reset" class="btn btn-secondary">Clear Form</button>
+                    <button type="submit" class="btn btn-primary">Submit Feedback</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Review Preview Section -->
+        <div class="review-preview" id="reviewPreview">
+            <h3>Review Preview</h3>
+            <div id="previewContent"></div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for handling form submission and displaying review preview
+        document.getElementById('feedbackForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Get form values
+            const name = document.getElementById('firstName').value + ' ' + document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const starRating = document.querySelector('input[name="starRating"]:checked')?.value;
+            const faceRating = document.querySelector('input[name="faceRating"]:checked')?.value;
+            const deliveryRating = document.querySelector('input[name="deliveryRating"]:checked')?.value;
+            const additionalFeedback = document.getElementById('additionalFeedback').value;
+            const productImage = document.getElementById('productImage').files[0];
+
+            // Create preview content
+            let previewContent = `<p><strong>Name:</strong> ${name}</p>
+                                  <p><strong>Email:</strong> ${email}</p>
+                                  <p><strong>Star Rating:</strong> ${starRating}</p>
+                                  <p><strong>Face Rating:</strong> ${faceRating}</p>
+                                  <p><strong>Delivery Rating:</strong> ${deliveryRating}</p>
+                                  <p><strong>Additional Feedback:</strong> ${additionalFeedback}</p>`;
+
+            // Display uploaded image if exists
+            if (productImage) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    previewContent += `<p><strong>Uploaded Image:</strong></p>
+                                       <img src="${e.target.result}" alt="Product Image" style="max-width: 200px;"/>`;
+                    document.getElementById('previewContent').innerHTML = previewContent;
+                    document.getElementById('reviewPreview').style.display = 'block'; // Show the review preview
+                };
+                reader.readAsDataURL(productImage);
+            } else {
+                document.getElementById('previewContent').innerHTML = previewContent;
+                document.getElementById('reviewPreview').style.display = 'block'; // Show the review preview
+            }
+        });
+
+        // JavaScript for Like and Dislike button hover and click events
+        const likeButton = document.getElementById('likeButton');
+        const dislikeButton = document.getElementById('dislikeButton');
+
+        likeButton.addEventListener('mouseover', function () {
+            likeButton.style.backgroundColor = '#6495ED'; // Light Pastel Yellow
+        });
+
+        likeButton.addEventListener('mouseout', function () {
+            if (!likeButton.classList.contains('active')) {
+                likeButton.style.backgroundColor = '#b3d8a8'; // Light Pastel Green
+            }
+        });
+
+        likeButton.addEventListener('click', function () {
+            likeButton.classList.add('active');
+            dislikeButton.classList.remove('active');
+            dislikeButton.style.backgroundColor = '#b3d8a8'; // Reset dislike button color
+        });
+
+        dislikeButton.addEventListener('mouseover', function () {
+            dislikeButton.style.backgroundColor = '#6495ED'; // Light Pastel Yellow
+        });
+
+        dislikeButton.addEventListener('mouseout', function () {
+            if (!dislikeButton.classList.contains('active')) {
+                dislikeButton.style.backgroundColor = '#b3d8a8'; // Light Pastel Green
+            }
+        });
+
+        dislikeButton.addEventListener('click', function () {
+            dislikeButton.classList.add('active');
+            likeButton.classList.remove('active');
+            likeButton.style.backgroundColor = '#b3d8a8'; // Reset like button color
+        });
+
+        // Event listeners for star rating
+        const starLabels = document.querySelectorAll('.star-rating label');
+        starLabels.forEach((label, index) => {
+            label.addEventListener('mouseover', function () {
+                for (let i = 0; i <= index; i++) {
+                    starLabels[i].style.color = '#AA60C8';
+                }
+            });
+
+            label.addEventListener('mouseout', function () {
+                const checkedStar = document.querySelector('input[name="starRating"]:checked');
+                if (!checkedStar) {
+                    starLabels.forEach(star => star.style.color = '#ddd');
+                } else {
+                    const checkedIndex = Array.from(starLabels).indexOf(checkedStar.nextElementSibling);
+                    for (let i = 0; i < starLabels.length; i++) {
+                        starLabels[i].style.color = i <= checkedIndex ? '#AA60C8' : '#ddd';
+                    }
+                }
+            });
+        });
+
+        // Event listeners for face rating
+        const faceLabels = document.querySelectorAll('.face-rating label');
+        const faceInputs = document.querySelectorAll('.face-rating input');
+        const faceColors = ["#007bff", "#28a745", "#FEE12B", "#ff8c00", "#dc3545"]; // Colors for each face
+
+        faceLabels.forEach((label, index) => {
+            label.addEventListener('mouseover', function () {
+                resetFaces(); // Reset all faces before applying hover effect
+                faceLabels[index].style.color = faceColors[index]; // Highlight only the hovered face
+            });
+
+            label.addEventListener('mouseout', function () {
+                updateSelectedFace(); // Restore selected face, if any
+            });
+
+            label.addEventListener('click', function () {
+                faceInputs[index].checked = true; // Ensure only one face is selected
+                updateSelectedFace(); // Apply selected color
+            });
+        });
+
+        // Function to reset all faces to default color
+        function resetFaces() {
+            faceLabels.forEach(face => face.style.color = "#ddd");
+        }
+
+        // Function to update the selected face color
+        function updateSelectedFace() {
+            const selectedFace = document.querySelector('input[name="faceRating"]:checked');
+            resetFaces(); // Reset first
+            if (selectedFace) {
+                const index = Array.from(faceInputs).indexOf(selectedFace);
+                faceLabels[index].style.color = faceColors[index]; // Apply color to the selected face
+            }
+        }
+
+        // Event listeners for delivery rating
+        const deliveryLabels = document.querySelectorAll('.delivery-rating label');
+        deliveryLabels.forEach((label) => {
+            label.addEventListener('mouseover', function () {
+                label.style.backgroundColor = '#fbffe4'; // Light Pastel Yellow
+            });
+
+            label.addEventListener('mouseout', function () {
+                const checkedDelivery = document.querySelector('input[name="deliveryRating"]:checked');
+                deliveryLabels.forEach(lbl => lbl.style.backgroundColor = '#b3d8a8'); // Light Pastel Green
+                if (checkedDelivery) {
+                    const checkedLabel = document.querySelector(`label[for="${checkedDelivery.id}"]`);
+                    checkedLabel.style.backgroundColor = '#C68FE6'; // Light Pastel Yellow
+                    checkedLabel.style.color = '#3d8a8f'; // Darker text
+                }
+            });
+
+            label.addEventListener('click', function () {
+                deliveryLabels.forEach(lbl => {
+                    lbl.style.backgroundColor = '#b3d8a8'; // Light Pastel Green
+                    lbl.style.color = '#3d8a8f'; // Darker text
+                });
+                label.style.backgroundColor = '#C68FE6'; // Light Pastel Yellow
+                label.style.color = '#3d8a8f'; // Darker text
+            });
+        });
+        document.addEventListener("DOMContentLoaded", function () {
+            // Mapping for stars and faces
+            const starToFaceMap = {
+                1: "face5", // ⭐ -> 😡 Angry
+                2: "face4", // ⭐⭐ -> 🙁 Frown
+                3: "face3", // ⭐⭐⭐ -> 😐 Neutral
+                4: "face2", // ⭐⭐⭐⭐ -> 🙂 Smile
+                5: "face1"  // ⭐⭐⭐⭐⭐ -> 😁 Grin
+            };
+
+            const faceToStarMap = {
+                "face1": "star5", // 😁 -> ⭐⭐⭐⭐⭐
+                "face2": "star4", // 🙂 -> ⭐⭐⭐⭐
+                "face3": "star3", // 😐 -> ⭐⭐⭐
+                "face4": "star2", // 🙁 -> ⭐⭐
+                "face5": "star1"  // 😡 -> ⭐
+            };
+
+            function syncFaceWithStars() {
+                const selectedStar = document.querySelector('input[name="starRating"]:checked');
+                if (selectedStar) {
+                    const correspondingFace = document.getElementById(starToFaceMap[selectedStar.value]);
+                    if (correspondingFace) {
+                        correspondingFace.checked = true;
+                        updateSelectedFace();
+                    }
+                }
+            }
+
+            function syncStarsWithFace() {
+                const selectedFace = document.querySelector('input[name="faceRating"]:checked');
+                if (selectedFace) {
+                    const correspondingStar = document.getElementById(faceToStarMap[selectedFace.id]);
+                    if (correspondingStar) {
+                        const starValue = parseInt(correspondingStar.value);
+                        document.querySelectorAll('input[name="starRating"]').forEach(star => {
+                            star.checked = parseInt(star.value) <= starValue;
+                        });
+                        setTimeout(() => {
+                            correspondingStar.dispatchEvent(new Event("change"));
+                        }, 50);
+                    }
+                }
+            }
+
+            document.querySelectorAll('input[name="starRating"]').forEach(star => {
+                star.addEventListener('change', syncFaceWithStars);
+            });
+
+            document.querySelectorAll('input[name="faceRating"]').forEach(face => {
+                face.addEventListener('change', function () {
+                    syncStarsWithFace();
+                    updateSelectedFace();
+                });
+
+                face.addEventListener('click', function () {
+                    syncStarsWithFace();
+                    updateSelectedFace();
+                });
+            });
+
+            function updateSelectedFace() {
+                const faceLabels = document.querySelectorAll('.face-rating label');
+                const faceInputs = document.querySelectorAll('input[name="faceRating"]');
+
+                faceLabels.forEach(label => label.style.color = "#ddd");
+
+                faceInputs.forEach(input => {
+                    if (input.checked) {
+                        const colors = {
+                            "face1": "#007bff", // 😁 (Grin) -> Blue
+                            "face2": "#28a745", // 🙂 (Smile) -> Green
+                            "face3": "#FEE12B", // 😐 (Neutral) -> Yellow
+                            "face4": "#ff8c00", // 🙁 (Frown) -> Orange
+                            "face5": "#dc3545"  // 😡 (Angry) -> Red
+                        };
+                        const label = document.querySelector('label[for="' + input.id + '"]');
+                        if (label) {
+                            label.style.color = colors[input.id];
+                        }
+                    }
+                });
+            }
+        });
+
+    </script>
+</body>
+
+</html>

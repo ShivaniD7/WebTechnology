@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to PDEU</title>
+    <style>
+        body {
+            background-color: #EDDFE0;
+            color: #333;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 10px 0;
+        }
+
+        h1 {
+            color: #8b0000;
+            font-family: 'Georgia', serif;
+            text-align: center;
+            font-size: 2.5em;
+        }
+
+        h2 {
+            color: #d2691e;
+            text-align: center;
+            font-size: 2em;
+            margin-top: 20px;
+        }
+
+        h3,
+        h4 {
+            color: #008080;
+        }
+
+        a {
+            color: #8b0000;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #d2691e;
+            transform: scale(1.1);
+        }
+
+        .header,
+        .footer {
+            background-color: #ffcccb;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav {
+            background-color: #ffa07a;
+            text-align: center;
+            padding: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav a {
+            margin: 0 15px;
+        }
+
+        .nav input[type="text"] {
+            padding: 5px;
+            border: 1px solid #8b0000;
+            border-radius: 5px;
+            margin-right: 5px;
+        }
+
+        .nav button {
+            padding: 5px 10px;
+            background-color: #8b0000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .nav button:hover {
+            background-color: #d2691e;
+        }
+
+        .section {
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+        }
+
+        .faculties {
+            background-color: #fffacd;
+        }
+
+        .courses {
+            background-color: #e0ffff;
+        }
+
+        .libraries {
+            background-color: #f0fff0;
+        }
+
+        .achievements {
+            background-color: #ffe4e1;
+        }
+
+        .news-events {
+            background-color: #f5f5dc;
+        }
+
+        .contact {
+            background-color: #ffe4b5;
+        }
+
+        .footer {
+            text-align: center;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        img:hover {
+            transform: scale(1.05);
+        }
+
+        .marquee {
+            background-color: #ffcccb;
+            padding: 10px;
+            font-weight: bold;
+            color: #8b0000;
+            text-align: center;
+            font-size: 1.2em;
+        }
+
+        .contact-info {
+            color: #8b0000;
+        }
+
+        .faculties img,
+        .courses img,
+        .libraries img,
+        .achievements img,
+        .news-events img {
+            margin: 10px;
+        }
+
+        .flex-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .flex-item {
+            flex: 1 1 45%;
+            /* Adjusts the width of the items */
+            margin: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .flex-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .footer p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <div class="header">
+        <div style="display: flex; align-items: center; justify-content: center;">
+            <img src="https://upload.wikimedia.org/wikipedia/en/f/f1/Pandit_Deendayal_Energy_University_logo.png"
+                alt="College Campus" width="150">
+            <div style="margin-left: 20px;">
+                <h1>Welcome to Pandit Deendayal Energy University</h1>
+                <h3><i>Formerly Pandit Deendayal Petroleum University</i></h3>
+                <p><i>Empowering Education for a Brighter Tomorrow</i></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Announcement Section -->
+    <div class="marquee">
+        &#x1F389; Exciting news! Enrollment for the new semester is now open! &#x1F389;
+    </div>
+
+    <!-- Navigation Section -->
+    <div class="nav">
+        <a href="#faculties">Faculties</a> |
+        <a href="#courses">Courses</a> |
+        <a href="#libraries">Libraries</a> |
+        <a href="#achievements">Achievements</a> |
+        <a href="#news-events">News &amp; Events</a> |
+        <a href="#contact">Contact</a>
+        <input type="text" placeholder="Search...">
+        <button type="button">Search</button>
+    </div>
+
+    <!-- Faculties Section -->
+    <div id="faculties" class="section faculties">
+        <h2>Our Faculties</h2>
+        <div class="flex-container">
+            <div class="flex-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGSihfbxj40m9Ypz4ntRexLsbCKgTdRWhHfg&s"
+                    alt="Faculties" width="120">
+                <p>School of Management</p>
+            </div>
+            <div class="flex-item">
+                <img src="https://pbs.twimg.com/profile_images/1671191213482065923/V6irKzCL_400x400.jpg" alt="Faculties"
+                    width="120">
+                <p>School of Energy Technology</p>
+            </div>
+            <div class="flex-item">
+                <img src="https://api.pdeu.ac.in/pdpu/images/6107af987f0e1.jpeg" alt="Faculties" width="120">
+                <p>School of Technology</p>
+            </div>
+            <div class="flex-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC0XaixIfIr-bqcZPzW2lQrMxYWPsbVzPXGg&s"
+                    alt="Faculties" width="120">
+                <p>School of Liberal Studies</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Courses Section -->
+    <div id="courses" class="section courses">
+        <h2>Courses Offered</h2>
+        <a href="https://pdeu.ac.in/courses">
+            <img src="https://www.open.edu/openlearn/pluginfile.php/3277384/tool_ocwmanage/articletext/0/become_a_student_inline.jpg"
+                alt="Courses" width="500" align="right">
+        </a>
+        <h3>Undergraduate Programs:</h3>
+        <h4>Bachelor of Technology (B.Tech):</h4>
+        <ul>
+            <li>Chemical Engineering</li>
+            <li>Civil Engineering</li>
+            <li>Computer Engineering</li>
+            <li>Electrical Engineering</li>
+            <li>Mechanical Engineering</li>
+            <li>Petroleum Engineering</li>
+            <li>Information and Communication Technology</li>
+            <li>Biotechnology</li>
+        </ul>
+        <h4>Bachelor of Science (B.Sc. Hons):</h4>
+        <ul>
+            <li>Physics</li>
+            <li>Chemistry</li>
+            <li>Mathematics</li>
+        </ul>
+        <h4>Bachelor of Arts (B.A. Hons):</h4>
+        <ul>
+            <li>English Literature</li>
+            <li>Economics</li>
+            <li>Psychology</li>
+            <li>International Relations</li>
+            <li>Public Policy and Administration</li>
+            <li>Mass Communication</li>
+        </ul>
+        <h4>Bachelor of Business Administration (BBA Hons):</h4>
+        <ul>
+            <li>Marketing</li>
+            <li>Finance</li>
+            <li>Human Resource Management</li>
+        </ul>
+        <h4>Bachelor of Commerce (B.Com. Hons):</h4>
+        <ul>
+            <li>Finance and Accounts</li>
+            <li>Banking and Insurance</li>
+            <li>Entrepreneurship</li>
+            <li>International Trade</li>
+            <li>Marketing and Management</li>
+        </ul>
+
+        <h3>Postgraduate Programs:</h3>
+        <h4>Master of Technology (M.Tech):</h4>
+        <ul>
+            <li>Petroleum Engineering</li>
+            <li>Nuclear Engineering</li>
+            <li>Energy Systems (Focused on Solar Energy)</li>
+            <li>Mechanical Engineering</li>
+            <li>Civil Engineering</li>
+            <li>Electrical Engineering</li>
+            <li>Chemical Engineering</li>
+            <li>Environmental Engineering</li>
+            <li>Data Science</li>
+            <li>Cyber Security</li>
+            <li>Artificial Intelligence</li>
+            <li>Transportation Engineering</li>
+            <li>Construction Technology and Management</li>
+        </ul>
+        <h4>Master of Science (M.Sc):</h4>
+        <ul>
+            <li>Physics</li>
+            <li>Chemistry</li>
+            <li>Mathematics</li>
+        </ul>
+        <h4>Master of Business Administration (MBA):</h4>
+        <ul>
+            <li>Energy and Infrastructure</li>
+            <li>General Management (Operations, Marketing, HR, Finance)</li>
+        </ul>
+        <h4>Master of Arts (M.A):</h4>
+        <ul>
+            <li>English Literature</li>
+            <li>Public Policy and Administration</li>
+            <li>International Relations</li>
+        </ul>
+        <h4>Master of Commerce (M.Com):</h4>
+
+        <h3>Doctoral Programs:</h3>
+        <h4>Ph.D.:</h4>
+        <ul>
+            <li>Engineering and Technology</li>
+            <li>Sciences</li>
+            <li>Management</li>
+            <li>Liberal Studies</li>
+        </ul>
+    </div>
+
+    <!-- Libraries Section -->
+    <div id="libraries" class="section libraries">
+        <h2>Our Libraries</h2>
+        <div style="text-align: center;">
+            <img src="https://www.princeton.edu/sites/default/files/styles/1x_full_2x_half_crop/public/images/2019/03/SMS_9732%20copy_d.jpg?itok=rJa7ipFA"
+                alt="Library" width="300" style="margin-bottom: 20px;">
+        </div>
+        <p><i>Explore our well-stocked libraries with thousands of books, journals, and e-resources.</i></p>
+        <p><i>SoM Library: B Block</i></p>
+        <p><i>SLS Library: D Block</i></p>
+        <p><i>SoT/SoET Library: F Block</i></p>
+    </div>
+
+    <!-- Achievements Section -->
+    <div id="achievements" class="section achievements">
+        <h2>College Achievements</h2>
+        <img src="https://media.istockphoto.com/id/1205715897/vector/young-businessman-and-woman-reaping-the-reward.jpg?s=612x612&w=0&k=20&c=GI2i6wzYaJ1_XrrLzrO8NakK7Ukayl5T938ayPVFjeQ="
+            alt="Achievements" width="300" align="right">
+        <h3>Institutional Recognitions:</h3>
+        <ul>
+            <li><b>National Institutional Ranking Framework (NIRF) 2023:</b> PDEU secured a position within
+                the 51-100 rank band in the Innovation category, as recognized by the Ministry of Education,
+                Government of India.</li>
+            <li><b>Institution's Innovation Council (IIC) Rating:</b> The university was awarded a 4-star rating
+                in the IIC ranking for 2020-21, under the aegis of the Ministry of Education's Innovation Cell,
+                Government of India.</li>
+        </ul>
+        <h3>Research and Development Initiatives:</h3>
+        <ul>
+            <li><b>Solar Panel Manufacturing Center:</b> On January 10th, PDEU inaugurated a
+                state-of-the-art solar panel manufacturing center equipped with a 50 MW production line, marking a
+                significant
+                advancement in renewable energy research and education.</li>
+            <li><b>Innovation and Incubation Centre (PDEU IIC):</b> Established in 2014,
+                PDEU IIC has supported over 210 startups and secured more than 110 intellectual property rights,
+                focusing on domains
+                such as energy, education, AI, manufacturing, and healthcare.</li>
+        </ul>
+        <h3>Faculty and Student Achievements:</h3>
+        <ul>
+            <li><b>Faculty Honors:</b> Dr. Debasis Sarkar, Associate Professor in the Civil Engineering Department,
+                was felicitated with the ‘Distinguished Researcher Award’ by Venus International Foundation, Chennai,
+                for his significant
+                contributions in the field of Construction Management in January 2023.</li>
+            <li><b>Student Competitions:</b> A team of students from the Civil Engineering Department won the DSPS-2023
+                Student Competition hosted by the Federal Highway Administration (FHWA), USA, focusing on data science
+                and the application of
+                Artificial Intelligence in pavement condition monitoring.</li>
+        </ul>
+        <h3>International Collaborations:</h3>
+        <ul>
+            <li><b>International Exposure Program (IEP):</b> Since 2010, PDEU has facilitated short-term exposure
+                programs with foreign universities, providing students with academic, technical, and cultural
+                experiences to prepare them
+                for dynamic international careers.</li>
+        </ul>
+    </div>
+
+    <!-- News & Events Section -->
+    <div id="news-events" class="section news-events">
+        <h2>News &amp; Events</h2>
+        <div class="flex-container">
+            <div class="flex-item">
+                <img src="https://www.eventbrite.com/blog/wp-content/uploads/2023/02/image5-min-1.png" alt="Workshop"
+                    width="300">
+                <h3>Upcoming Workshop on AI</h3>
+                <p><i>Join us for a hands-on workshop on Artificial Intelligence on January 20th,
+                        2025.</i></p>
+            </div>
+            <div class="flex-item">
+                <img src="https://www.mmcas.in/wp-content/uploads/2023/08/Lumina-1rd.png" alt="Cultural Fest"
+                    width="300">
+                <h3>Annual Cultural Fest</h3>
+                <p><i>Experience the vibrant culture and talent showcase at our Annual Fest on
+                        February 10th, 2025.</i></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div id="contact" class="section contact">
+        <h2>Contact Us</h2>
+        <p><b>Email:</b> <a href="mailto:info@pdeu.edu">info@pdeu.edu</a></p>
+        <p><b>Phone:</b> <span class="contact-info">+123-456-7890</span></p>
+        <p><b>Address:</b> <span class="contact-info">Knowledge Corridor, Raisan Village, PDPU Rd, Gandhinagar, Raysan,
+                Gujarat 382007</span></p>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p><i>Pandit Deendayal Energy University &copy; 2025. All rights reserved.</i></p>
+        <p><a href="#top">Back to Top</a></p>
+    </div>
+</body>
+
+</html>

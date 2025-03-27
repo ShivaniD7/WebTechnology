@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML for Beginners</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: #074799;
+            color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+
+        .header img:hover {
+            transform: scale(1.05);
+        }
+
+        .header-text {
+            max-width: 800px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 60px;
+            font-weight: 800;
+        }
+
+        .header p {
+            color: #e0e0e0;
+            margin: 10px 0 20px;
+        }
+
+        .header .start-series {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #dc3545;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .header .start-series:hover {
+            background-color: #c82333;
+        }
+
+        .course-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ffffff;
+            padding: 10px 20px;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .course-stats {
+            font-size: 14px;
+            color: #6c757d;
+        }
+
+        .course-stats span {
+            margin-right: 15px;
+        }
+
+        .complete-series {
+            padding: 5px 15px;
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+
+        .complete-series:hover {
+            background-color: #0056b3;
+        }
+
+        .content {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .lesson {
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            background-color: #ffffff;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .lesson:hover {
+            transform: translateY(-5px);
+        }
+
+        .lesson img {
+            width: 400px;
+            height: 240px;
+            object-fit: cover;
+            border-right: 2px solid #ddd;
+        }
+
+        .lesson-content {
+            padding: 15px;
+        }
+
+        .lesson-title {
+            font-size: 20px;
+            margin: 0 0 10px;
+            color: #343a40;
+        }
+
+        .lesson-date {
+            font-size: 14px;
+            color: #6c757d;
+            margin-bottom: 10px;
+        }
+
+        .lesson-description {
+            font-size: 14px;
+            color: #495057;
+            margin-bottom: 0;
+        }
+
+        .next-series {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 18px;
+            color: #6c757d;
+        }
+
+        .next-series a {
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 16px;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 20px;
+            background-color: #28a745;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .next-series a:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="header-text">
+        <h1>HTML for Beginners</h1>
+        <p>Dive into the fundamentals of web development with our beginner-friendly HTML course. Learn the essentials of HTML, the language behind every webpage, and gain practical experience creating your own web content. Perfect for absolute beginners, this course will equip you with the skills to start building your first websites and set you on the path to becoming a web developer.</p>
+        <a href="#" class="start-series">Start Series</a>
+    </div>
+    <img src="https://play-lh.googleusercontent.com/TfmZ45Y7OF4lwQK-nr3EOy0hBPC23x7JM6W36oIVhE5A6rmjgGarYFW3cs7oPR1t2oAI=w240-h480-rw" alt="HTML for Beginners Thumbnail">
+</div>
+
+<div class="course-info">
+    <div class="course-stats">
+        <span>11 Lessons</span>
+        <span>2h 5m</span>
+        <span>&#x1F4F6;Beginner</span>
+    </div>
+    <a href="#" class="complete-series">Complete Series</a>
+</div>
+
+<div class="content">
+    <div class="lesson">
+        <img src="https://media.licdn.com/dms/image/D4D12AQGEPmplhS0vVw/article-cover_image-shrink_720_1280/0/1707332857725?e=2147483647&v=beta&t=WrfC72RR96diE0tVGerUnVic5JLIoX9bPgzcKnYCjpc" alt="Lesson Thumbnail">
+        <div class="lesson-content">
+            <h2 class="lesson-title">HTML Learning Path - What is HTML and Why Learn It</h2>
+            <p class="lesson-date">Nov 03, 2023</p>
+            <p class="lesson-description">In this lesson, we will learn what HTML is and why we need to know about it.</p>
+        </div>
+    </div>
+
+    <div class="lesson">
+        <img src="https://www.pixelkicks.co.uk/wp-content/uploads/2023/03/beginners-html-coding.jpg" alt="Lesson Thumbnail">
+        <div class="lesson-content">
+            <h2 class="lesson-title">HTML Learning Path - HTML Document Structure</h2>
+            <p class="lesson-date">Nov 03, 2023</p>
+            <p class="lesson-description">In this lesson, we will learn about the basic structure of HTML documents.</p>
+        </div>
+    </div>
+
+    <div class="lesson">
+        <img src="https://media.gcflearnfree.org/content/5e4182687a65ef28580b7d20_02_10_2020/HeadingAndParagraph.png" alt="Lesson Thumbnail">
+        <div class="lesson-content">
+            <h2 class="lesson-title">HTML Learning Path - Text Elements</h2>
+            <p class="lesson-date">Nov 03, 2023</p>
+            <p class="lesson-description">In this lesson, we will have a look at the elements used to markup text content in HTML.</p>
+        </div>
+    </div>
+
+    <div class="lesson">
+        <img src="https://en.ryte.com/wiki/img_auth.php/7/70/AnchorTag_en.png" alt="Lesson Thumbnail">
+        <div class="lesson-content">
+            <h2 class="lesson-title">HTML Learning Path - Anchor Elements</h2>
+            <p class="lesson-date">Nov 03, 2023</p>
+            <p class="lesson-description">In this lesson, we will look at a key element in what makes the web, the web: Hyperlinks.</p>
+        </div>
+    </div>
+
+    <div class="lesson">
+        <img src="https://media.gcflearnfree.org/content/5e46ef60397c182fec255f32_02_14_2020/lists.png" alt="Lesson Thumbnail">
+        <div class="lesson-content">
+            <h2 class="lesson-title">HTML Learning Path - List and Nav Elements</h2>
+            <p class="lesson-date">Nov 03, 2023</p>
+            <p class="lesson-description">In this lesson, we will learn about how to display content in a list and how we can use list elements to create navigational aids for our webpages.</p>
+        </div>
+    </div>
+
+    <div class="lesson">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxR2yabuRk_F8IUS6TX9PAc9wR0YK8BfYb8A&s" alt="Lesson Thumbnail">
+        <div class="lesson-content">
+            <h2 class="lesson-title">HTML Learning Path - Image Element</h2>
+            <p class="lesson-date">Nov 03, 2023</p>
+            <p class="lesson-description">In this lesson, we will learn about how to display images on our webpages.</p>
+        </div>
+    </div>
+
+    <div class="lesson">
+        <img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1632245238780/bS1ysZru4.jpeg?w=1600&h=840&fit=crop&crop=entropy&auto=compress,format&format=webp" alt="Lesson Thumbnail">
+        <div class="lesson-content">
+            <h2 class="lesson-title">HTML Learning Path - Additional Semantic Elements</h2>
+            <p class="lesson-date">Nov 03, 2023</p>
+            <p class="lesson-description">In this lesson, we will learn how to provide better structure to our webpages using semantic elements from HTML5.</p>
+        </div>
+    </div>
+
+    <div class="lesson">
+        <img src="https://images.shiksha.com/mediadata/ugcDocuments/images/wordpressImages/2022_04_How-to-Create-HTML-Forms.jpg" alt="Lesson Thumbnail">
+        <div class="lesson-content">
+            <h2 class="lesson-title">HTML Learning Path - Intro to Forms</h2>
+            <p class="lesson-date">Nov 03, 2023</p>
+            <p class="lesson-description">In this lesson, we will lay down our foundational knowledge of forms on the web, technology that will be used throughout your career as a web developer.</p>
+        </div>
+    </div>
+
+    <div class="lesson">
+        <img src="https://pineco.de/wp-content/uploads/2020/05/the-button-element.png" alt="Lesson Thumbnail">
+        <div class="lesson-content">
+            <h2 class="lesson-title">HTML Learning Path - Button Element</h2>
+            <p class="lesson-date">Nov 03, 2023</p>
+            <p class="lesson-description">In this lesson, we will explore the button element and some of the lesser-known attributes/functionality that can be added to them.</p>
+        </div>
+    </div>
+
+    <div class="lesson">
+        <img src="https://cdn.educba.com/academy/wp-content/uploads/2020/03/HTML-Form-Input-Type.jpg" alt="Lesson Thumbnail">
+        <div class="lesson-content">
+            <h2 class="lesson-title">HTML Learning Path - Additional Input Types</h2>
+            <p class="lesson-date">Nov 03, 2023</p>
+            <p class="lesson-description">In this lesson, we will explore the other types of input elements which we can use in our forms.</p>
+        </div>
+    </div>
+
+    <div class="lesson">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSL2bhBbOJPWzAGLbMi5s-TIPvSSF2GC90CUw&s" alt="Lesson Thumbnail">
+        <div class="lesson-content">
+            <h2 class="lesson-title">HTML Learning Path - Form Parameter Naming Conventions in Rails</h2>
+            <p class="lesson-date">Nov 03, 2023</p>
+            <p class="lesson-description">In this lesson, we will briefly look into the world of forms in Rails to see how the naming conventions Rails uses to help us get structured data from form submissions in our Rails applications.</p>
+        </div>
+    </div>
+</div>
+
+<div class="next-series">
+    <p>Finished this series? Continue learning in the next series.</p>
+    <a href="#">Next Series</a>
+</div>
+<br>
+</body>
+</html>
